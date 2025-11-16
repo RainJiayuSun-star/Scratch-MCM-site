@@ -1,27 +1,102 @@
-# Design of a Scratch Website for CS402-Introducing Computer Science to K-12 at UW Madison
-Note: This website is build for Scratch Club at Madison Childrens Museum (MCM). This club is under the program of class CS402 (Introducing Computer Science to K-12) at UW Madison. This web application aim to help kids navigate resources, and document the stages and processes of the club.
+# Design Documentation: MCM Scratch Club Website
+
+## Overview
+
+This website is built for the Scratch Club at Madison Children's Museum (MCM), part of CS402 (Introducing Computer Science to K-12) at UW Madison. The application helps kids navigate club resources and document club activities.
 
 ## Purpose
-As stated previously, this site is designed to help kids navigate supportive resources of the club content, which may include the presentaion that we used in class (google slides), some projects demonstration videos, some example projects to show a concept. Overall, the design should be straightforward and neat. 
 
-## Some UI/UX designs
-I'm currently thinking of having several navigation tabs/button for the site, but one thing for sure is having a home screen, a gallary page, and about page. What this main page and gallary pages has is specified below.
+The site provides a kid-friendly platform to access:
+- Class presentations (Google Slides)
+- Project demonstration videos
+- Example Scratch projects for learning concepts
+- Documentation of club sessions and progress
 
-### Home Screen
-- The home screen has a yellor color (same color as the Scratch cat) ribbon at the top. There should be a Scratch cat on the far left side, which is a common design as many other web apps. Use the SVG/logo from scratch/mid.edu. When I click on this Scratch cat, it should navigate to the official Scratch site.
-- There should be the title of the web app, "MCM - Scrach Club" on the right of the cat, which is still on the left side on the user screen. This title should also be clicked. It just navigate to the home screen, or the initial site that this web app has been loaded.
-- The "Home" button is on the right side of the screen. There should be comfortable spaces left on the right side of the button "Home". When user click on this button, it should navigate us to the home screen.
-- The "Gallary" button is on the right side of the button "Home"
-- The "About" button is on the right side of the button "Gallary"
-- There should be comfortable spaces left on the right side of the button "About". When user click on this button, it should navigate us to the home screen.
-- The main content is also on this page. Since this page is for kids to navigate supportive resources and document the club stages, it should have the date and topic at the top of each small widget. It could be like a React Card or similar design.
+Design principles: **straightforward, neat, and intuitive** for K-12 students.
 
-### Gallary page
-- The gallary page is designed to showcase student works. It would be good if it could embed something that shows the front page of their actual scratch project.
+## Technology Stack
 
-### About
-- This page contains information about this program of cs402 at UW Madison. Here are some related websites: (https://www.cs.wisc.edu/lead-a-scratch-club-uw-madison-students/) (https://www.cs.wisc.edu/cs402-introducing-computer-science-to-k-12/)
-- This page also contains the information that, it is designed by student named Rain Sun for the 1 hour duration club from 2:30pm to 3:30pm he and other two group mate Brendan and Aleeza leads. This club is located at Madison Childrens Museum every Sunday 
+- **Frontend Framework**: React 19.2.0
+- **Build Tool**: Vite 7.2.2
+- **Routing**: React Router DOM 7.9.6
+- **Styling**: CSS3 with responsive design
+- **React Compiler**: Enabled for performance optimization
 
-### Interactive Design
-- The layout should be interactive. This would be useful when user minimizes their web browser.
+## Application Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx         # Navigation header with Scratch cat logo
+│   └── Header.css
+├── pages/
+│   ├── Home.jsx           # Main page with session cards
+│   ├── Home.css
+│   ├── Gallery.jsx        # Student project showcase
+│   ├── Gallery.css
+│   ├── About.jsx          # Program information and credits
+│   └── About.css
+├── assets/
+│   └── Scratchcat-hquality.png
+├── App.jsx                # Main router configuration
+├── main.jsx               # Application entry point
+└── index.css              # Global styles
+```
+
+## UI/UX Design
+
+### Header Navigation (Shared Across All Pages)
+
+**Yellow Ribbon Bar** (`#FFCC00` - Scratch cat color):
+- **Scratch Cat Logo** (far left): Links to [scratch.mit.edu](https://scratch.mit.edu)
+- **Site Title** "MCM - Scratch Club" (left side): Clickable, navigates to home
+  - Styling: Black fill with white outline, transforms to orange on hover
+- **Navigation Buttons** (right side): Home, Gallery, About
+  - Minimal design with underline animation on hover
+  - Spacing: Comfortable padding on right side of "About" button
+
+### Home Page
+
+**Purpose**: Display club sessions and resources
+
+**Features**:
+- Session cards showing:
+  - Date
+  - Topic title
+  - Description
+  - Resource links (when available)
+- Responsive grid layout
+- Hover effects for interactivity
+
+### Gallery Page
+
+**Purpose**: Showcase student Scratch projects
+
+**Features**:
+- Embedded Scratch project previews (iframes)
+- Project metadata (title, author)
+- Direct links to view projects on Scratch platform
+
+### About Page
+
+**Purpose**: Provide program context and credits
+
+**Content**:
+- CS402 program information at UW Madison
+- Links:
+  - [Lead a Scratch Club - UW Madison Students](https://www.cs.wisc.edu/lead-a-scratch-club-uw-madison-students/)
+  - [CS402 - Introducing Computer Science to K-12](https://www.cs.wisc.edu/cs402-introducing-computer-science-to-k-12/)
+- Credits: Designed by Rain Sun
+- Club details:
+  - Location: Madison Children's Museum
+  - Schedule: Every Sunday, 2:30pm - 3:30pm
+  - Leaders: Rain Sun, Brendan, Aleeza
+
+### Responsive Design
+
+The layout adapts to different screen sizes:
+- **Desktop**: Full layout with side-by-side elements
+- **Tablet** (≤768px): Stacked navigation, adjusted card grid
+- **Mobile** (≤480px): Single column layout, optimized spacing
+
+All pages maintain functionality and readability across devices.
