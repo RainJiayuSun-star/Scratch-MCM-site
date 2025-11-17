@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import './Gallery.css';
 
 // Sample Scratch projects - replace with actual project IDs/URLs
@@ -30,47 +31,60 @@ function Gallery() {
   return (
     <div className="gallery-page">
       <Header />
-      <main className="gallery-content">
-        <h1>Student Projects Gallery</h1>
-        <p className="gallery-intro">
-          Check out amazing projects created by our Scratch Club members!
-        </p>
-        <div className="projects-container">
-          {scratchProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-embed">
-                <iframe
-                  src={`https://scratch.mit.edu/projects/${project.projectId}/embed`}
-                  allowTransparency="true"
-                  width="485"
-                  height="402"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowFullScreen
-                  title={project.title}
-                />
+      <Container className="gallery-content py-5">
+        <Row>
+          <Col>
+            <h1 className="text-center mb-3">Student Projects Gallery</h1>
+            <p className="text-center text-muted gallery-intro mb-5">
+              Check out amazing projects created by our Scratch Club members!
+            </p>
+          </Col>
+        </Row>
+        {scratchProjects.length > 0 ? (
+          <Row className="g-4">
+            {scratchProjects.map((project) => (
+              <Col key={project.id} xs={12} md={6} lg={4}>
+                <Card className="h-100 project-card shadow-sm">
+                  <div className="project-embed">
+                    <iframe
+                      src={`https://scratch.mit.edu/projects/${project.projectId}/embed`}
+                      allowTransparency="true"
+                      width="485"
+                      height="402"
+                      frameBorder="0"
+                      scrolling="no"
+                      allowFullScreen
+                      title={project.title}
+                    />
+                  </div>
+                  <Card.Body>
+                    <Card.Title>{project.title}</Card.Title>
+                    <Card.Text className="text-muted project-author mb-3">
+                      by {project.author}
+                    </Card.Text>
+                    <a
+                      href={`https://scratch.mit.edu/projects/${project.projectId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      View on Scratch →
+                    </a>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <Row>
+            <Col>
+              <div className="no-projects text-center">
+                <p>No projects to display yet. Check back soon!</p>
               </div>
-              <div className="project-info">
-                <h3>{project.title}</h3>
-                <p className="project-author">by {project.author}</p>
-                <a
-                  href={`https://scratch.mit.edu/projects/${project.projectId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  View on Scratch →
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-        {scratchProjects.length === 0 && (
-          <div className="no-projects">
-            <p>No projects to display yet. Check back soon!</p>
-          </div>
+            </Col>
+          </Row>
         )}
-      </main>
+      </Container>
     </div>
   );
 }

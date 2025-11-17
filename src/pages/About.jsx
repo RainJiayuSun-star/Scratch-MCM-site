@@ -11,7 +11,7 @@ function About() {
         <section className="about-section">
           <h2>CS402 Program at UW Madison</h2>
           <p>
-            This website is part of the CS402 - Introducing Computer Science to K-12 program 
+            This website is for the CS402 - Introducing Computer Science to K-12 program 
             at the University of Wisconsin-Madison. The program aims to bring computer science 
             education to K-12 students through engaging and interactive activities.
           </p>
@@ -48,7 +48,7 @@ function About() {
           <h2>Credits</h2>
           <p>
             This website was designed by <strong>Rain Sun</strong> for the Scratch Club 
-            sessions. The club is led by Rain Sun, Brendan, and Aleeza.
+            sessions. The club is led by Brandon Rodriguez, Aleeza Rasheed, and Rain Sun. Supervised by Peter Kirschmann.
           </p>
           <p className="club-details">
             <strong>Location:</strong> Madison Children's Museum (MCM)<br />
