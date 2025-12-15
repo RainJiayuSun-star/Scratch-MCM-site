@@ -4,27 +4,7 @@ import './Gallery.css';
 
 // Sample Scratch projects - replace with actual project IDs/URLs
 const scratchProjects = [
-  {
-    id: 1,
-    title: 'My First Project',
-    projectId: '123456789',
-    author: 'Student 1',
-    thumbnail: 'https://cdn2.scratch.mit.edu/get_image/project/123456789_480x360.png'
-  },
-  {
-    id: 2,
-    title: 'Dancing Cat',
-    projectId: '987654321',
-    author: 'Student 2',
-    thumbnail: 'https://cdn2.scratch.mit.edu/get_image/project/987654321_480x360.png'
-  },
-  {
-    id: 3,
-    title: 'Interactive Story',
-    projectId: '456789123',
-    author: 'Student 3',
-    thumbnail: 'https://cdn2.scratch.mit.edu/get_image/project/456789123_480x360.png'
-  },
+
 ];
 
 function Gallery() {
@@ -38,6 +18,7 @@ function Gallery() {
             <p className="text-center text-muted gallery-intro mb-5">
               Check out amazing projects created by our Scratch Club members!
             </p>
+            <p><strong>This page is still under construction</strong></p>
           </Col>
         </Row>
         {scratchProjects.length > 0 ? (
